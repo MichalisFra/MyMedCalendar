@@ -1,0 +1,48 @@
+﻿@page
+@model MyMedCalendar.Pages.Patient.PatientInfoModel
+@{
+    ViewData["Title"] = "Patient Information";
+}
+
+<h1>Patient Information</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Patient.FirstName" class="control-label">Firstname</label>
+        <input asp-for="Patient.FirstName" class="form-control" />
+        <span asp-validation-for="Patient.FirstName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Patient.LastName" class="control-label">Lastname</label>
+        <input asp-for="Patient.LastName" class="form-control" />
+        <span asp-validation-for="Patient.LastName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Patient.AMKA" class="control-label"></label>
+        <input asp-for="Patient.AMKA" class="form-control" />
+        <span asp-validation-for="Patient.AMKA" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Patient.DateOfBirth" class="control-label">Date of Birth</label>
+        <input asp-for="Patient.DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="Patient.DateOfBirth" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+@if (Model.ErrorMessage != null)
+{
+    <div class="alert alert-danger mt-3">@Model.ErrorMessage</div>
+}
+
+@if (Model.SuccessMessage != null)
+{
+    <div class="alert alert-success mt-3">@Model.SuccessMessage</div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}

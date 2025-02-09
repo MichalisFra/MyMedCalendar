@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation-unobtrusive@3.2.12/dist/jquery.validate.unobtrusive.min.js"></script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <h2>Never lose track of your medication</h2>
+    <p>
+        <a asp-page="/User/Login">Log in</a> or
+        <a asp-page="/User/Signup" >Sign up</a>
+    </p>
+</div>
+

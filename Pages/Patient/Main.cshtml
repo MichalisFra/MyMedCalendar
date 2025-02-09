@@ -1,0 +1,94 @@
+﻿@page "/Patient"
+@model MyMedCalendar.Pages.Patient.MainModel
+@{
+    ViewData["Title"] = "Patient Main";
+}
+
+<h2>Your Medication Schedules</h2>
+
+<!-- Medication Schedule Table -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th><input type="checkbox" id="select-all" /></th>
+            <th>Drug</th>
+            <th>Dosage</th>
+            <th>Frequency Per Week</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var schedule in Model.MedicationSchedules)
+        {
+            <tr>
+                <td><input type="checkbox" class="schedule-checkbox" value="@schedule.Id" /></td>
+                <td>@schedule.DrugName</td>
+                <td>@schedule.Dosage mg</td>
+                <td>@schedule.FrequencyPerWeek times</td>
+                <td>@schedule.StartDate.ToString("yyyy-MM-dd")</td>
+                <td>@schedule.EndDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-page="/MedicationSchedule/Edit" asp-route-id="@schedule.Id" class="btn btn-primary btn-sm">Edit</a>
+                    <form method="post" asp-page="/MedicationSchedule/Delete" asp-route-id="@schedule.Id" style="display:inline;">
+                        @Html.AntiForgeryToken()
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Form for Generating Calendar -->
+<form id="generateCalendarForm" method="post" asp-page="/MedicationSchedule/GenerateCalendar">
+    @Html.AntiForgeryToken()
+    <div id="hiddenInputsContainer"></div>
+
+    <div class="mb-3">
+        <a asp-page="/MedicationSchedule/Create" class="btn btn-primary">Add Schedule</a>
+        <button type="button" class="btn btn-primary" id="addDrugButton">Add New Drug</button>
+        <button type="button" id="generateCalendarButton" class="btn btn-primary">Generate Calendar</button>
+    </div>
+</form>
+
+@section Scripts {
+    <script>
+        // Select all checkboxes
+        document.getElementById('select-all').addEventListener('change', function () {
+            const checkboxes = document.querySelectorAll('.schedule-checkbox');
+            checkboxes.forEach(checkbox => checkbox.checked = this.checked);
+        });
+
+        // Redirect to Add New Drug page
+        document.getElementById('addDrugButton').addEventListener('click', function () {
+            window.location.href = '@Url.Page("/Drug/CreateDrug")';
+        });
+
+        // Handle Generate Calendar form submission
+        document.getElementById('generateCalendarButton').addEventListener('click', function () {
+            const selectedSchedules = document.querySelectorAll('.schedule-checkbox:checked');
+            if (selectedSchedules.length === 0) {
+                alert("Please select at least one schedule before generating the calendar.");
+                return;
+            }
+
+            // Remove existing hidden inputs (to prevent duplicates)
+            const container = document.getElementById('hiddenInputsContainer');
+            container.innerHTML = '';
+
+            // Add hidden inputs for each selected schedule
+            selectedSchedules.forEach(checkbox => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'selectedSchedules';
+                input.value = checkbox.value;
+                container.appendChild(input);
+            });
+
+            // Submit the form
+            document.getElementById('generateCalendarForm').submit();
+        });
+    </script>
+}

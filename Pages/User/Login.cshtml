@@ -1,0 +1,28 @@
+﻿@page
+@model MyMedCalendar.Pages.User.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+    </div>
+}
+
+<form method="POST" class="mt-4">
+    <div class="mb-3">
+        <label asp-for="Login.Email" class="form-label"></label>
+        <input asp-for="Login.Email" type="email" class="form-control" />
+        <span asp-validation-for="Login.Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Login.Password" class="form-label"></label>
+        <input asp-for="Login.Password" type="password" class="form-control" />
+        <span asp-validation-for="Login.Password" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+</form>

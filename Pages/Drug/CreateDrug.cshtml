@@ -1,0 +1,33 @@
+﻿@page
+@model MyMedCalendar.Pages.Drug.CreateDrugModel
+@{
+    ViewData["Title"] = "Create New Drug";
+}
+
+<h2>Create New Drug</h2>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="NewDrug.Name" class="control-label">Drug Name</label>
+        <input asp-for="NewDrug.Name" class="form-control" />
+        <span asp-validation-for="NewDrug.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewDrug.Company" class="control-label">Company Name</label>
+        <input asp-for="NewDrug.Company" class="form-control" />
+        <span asp-validation-for="NewDrug.Company" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="NewDrug.PackageSize" class="control-label">Package Size</label>
+        <input asp-for="NewDrug.PackageSize" class="form-control" type="number" />
+        <span asp-validation-for="NewDrug.PackageSize" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Drug</button>
+    <a asp-page="/MedicationSchedule/Create" class="btn btn-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

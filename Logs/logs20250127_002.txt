@@ -1,0 +1,93 @@
+2025-01-27 16:11:31.996 +02:00 [ERR] An error occurred while creating the database, migrating, or seeding data.
+Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: SQL Network Interfaces, error: 50 - Local Database Runtime error occurred. Error occurred during LocalDB instance startup: SQL Server process failed to start.
+)
+ ---> System.ComponentModel.Win32Exception (0x89C5010A): Unknown error (0x89c5010a)
+   at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, Boolean ignoreSniOpenTimeout, Int64 timerExpire, SqlConnectionString connectionOptions, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, Boolean withFailover)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+   at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool)
+   at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.ProviderBase.DbConnectionClosed.TryOpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open(SqlConnectionOverrides overrides)
+   at Microsoft.Data.SqlClient.SqlConnection.Open()
+   at Program.<Main>$(String[] args) in C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\Program.cs:line 94
+ClientConnectionId:00000000-0000-0000-0000-000000000000
+Error Number:-1983577846,State:0,Class:20
+2025-01-27 16:12:35.659 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-01-27 16:12:35.703 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-01-27 16:12:35.714 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-01-27 16:12:35.890 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Drugs] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-01-27 16:12:35.936 +02:00 [INF] User profile is available. Using 'C:\Users\mikef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-01-27 16:12:36.087 +02:00 [WRN] Overriding address(es) 'http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-01-27 16:12:36.108 +02:00 [INF] Now listening on: http://[::]:5000
+2025-01-27 16:12:36.110 +02:00 [INF] Now listening on: https://[::]:5001
+2025-01-27 16:12:36.111 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-01-27 16:12:36.112 +02:00 [INF] Hosting environment: Production
+2025-01-27 16:12:36.114 +02:00 [INF] Content root path: C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar
+2025-01-27 16:12:49.138 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-01-27 16:12:49.146 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 307 0 null 9.6747ms
+2025-01-27 16:12:49.156 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2025-01-27 16:12:49.179 +02:00 [INF] Executing endpoint '/Index'
+2025-01-27 16:12:49.192 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-01-27 16:12:49.275 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-01-27 16:12:49.277 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-01-27 16:12:49.322 +02:00 [INF] Executed page /Index in 126.5978ms
+2025-01-27 16:12:49.324 +02:00 [INF] Executed endpoint '/Index'
+2025-01-27 16:12:49.331 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 174.4036ms
+2025-01-27 16:12:49.489 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/MyMedCalendar.styles.css - null null
+2025-01-27 16:12:49.497 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/MyMedCalendar.styles.css - 404 0 null 7.3076ms
+2025-01-27 16:12:49.503 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/MyMedCalendar.styles.css, Response status code: 404
+2025-01-27 16:12:49.522 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-01-27 16:12:49.531 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-01-27 16:12:49.533 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 499 5430 image/x-icon 10.4336ms
+2025-01-27 16:14:02.764 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2025-01-27 16:14:02.771 +02:00 [INF] Executing endpoint '/Index'
+2025-01-27 16:14:02.772 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-01-27 16:14:02.836 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-01-27 16:14:02.838 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-01-27 16:14:02.843 +02:00 [INF] Executed page /Index in 68.595ms
+2025-01-27 16:14:02.845 +02:00 [INF] Executed endpoint '/Index'
+2025-01-27 16:14:02.847 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 82.3038ms
+2025-01-27 16:14:03.391 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/MyMedCalendar.styles.css - null null
+2025-01-27 16:14:03.397 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/MyMedCalendar.styles.css - 404 0 null 5.7518ms
+2025-01-27 16:14:03.401 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/MyMedCalendar.styles.css, Response status code: 404
+2025-01-27 16:14:03.484 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-01-27 16:14:03.489 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-01-27 16:14:03.491 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 499 5430 image/x-icon 7.1366ms
+2025-01-27 16:14:15.421 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/ - null null
+2025-01-27 16:14:15.426 +02:00 [INF] Executing endpoint '/Index'
+2025-01-27 16:14:15.428 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-01-27 16:14:15.445 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-01-27 16:14:15.448 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-01-27 16:14:15.451 +02:00 [INF] Executed page /Index in 21.0976ms
+2025-01-27 16:14:15.454 +02:00 [INF] Executed endpoint '/Index'
+2025-01-27 16:14:15.456 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/ - 200 null text/html; charset=utf-8 34.919ms
+2025-01-27 16:14:16.012 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/MyMedCalendar.styles.css - null null
+2025-01-27 16:14:16.017 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/MyMedCalendar.styles.css - 404 0 null 5.0206ms
+2025-01-27 16:14:16.023 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:5001/MyMedCalendar.styles.css, Response status code: 404
+2025-01-27 16:14:16.116 +02:00 [INF] Request starting HTTP/2 GET https://localhost:5001/favicon.ico - null null
+2025-01-27 16:14:16.121 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-01-27 16:14:16.124 +02:00 [INF] Request finished HTTP/2 GET https://localhost:5001/favicon.ico - 499 5430 image/x-icon 7.7654ms
+2025-01-27 16:14:45.566 +02:00 [INF] Application is shutting down...

@@ -1,0 +1,15 @@
+﻿@page
+@model MyMedCalendar.Pages.User.LogoutModel
+@{
+    Layout = null;
+    <!-- Optional if this page doesn't need a layout -->
+}
+
+<h2>Logging out...</h2>
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <p>Are you sure you want to log out?</p>
+    <button type="submit" class="btn btn-danger">Log out</button>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+</form>

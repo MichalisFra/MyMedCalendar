@@ -1,0 +1,1566 @@
+2025-02-09 12:31:13.002 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 12:31:13.040 +02:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-02-09 12:31:13.057 +02:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-02-09 12:31:13.097 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-02-09 12:31:13.103 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 12:31:13.104 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-02-09 12:31:13.107 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-02-09 12:31:13.116 +02:00 [INF] Applying migration '20250209103054_InitialMigration'.
+2025-02-09 12:31:13.146 +02:00 [ERR] Failed executing DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2025-02-09 12:32:04.561 +02:00 [INF] Executed DbCommand (67ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [MedCalendarDBdep];
+2025-02-09 12:32:04.626 +02:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [MedCalendarDBdep] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-02-09 12:32:04.642 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 12:32:04.647 +02:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-02-09 12:32:04.659 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-02-09 12:32:04.704 +02:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-02-09 12:32:04.713 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 12:32:04.716 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-02-09 12:32:04.723 +02:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-02-09 12:32:04.735 +02:00 [INF] Applying migration '20250209103054_InitialMigration'.
+2025-02-09 12:32:04.763 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoles] (
+    [Id] nvarchar(450) NOT NULL,
+    [Name] nvarchar(256) NULL,
+    [NormalizedName] nvarchar(256) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+);
+2025-02-09 12:32:04.767 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUsers] (
+    [Id] nvarchar(450) NOT NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    [UserName] nvarchar(256) NULL,
+    [NormalizedUserName] nvarchar(256) NULL,
+    [Email] nvarchar(256) NULL,
+    [NormalizedEmail] nvarchar(256) NULL,
+    [EmailConfirmed] bit NOT NULL,
+    [PasswordHash] nvarchar(max) NULL,
+    [SecurityStamp] nvarchar(max) NULL,
+    [ConcurrencyStamp] nvarchar(max) NULL,
+    [PhoneNumber] nvarchar(max) NULL,
+    [PhoneNumberConfirmed] bit NOT NULL,
+    [TwoFactorEnabled] bit NOT NULL,
+    [LockoutEnd] datetimeoffset NULL,
+    [LockoutEnabled] bit NOT NULL,
+    [AccessFailedCount] int NOT NULL,
+    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+);
+2025-02-09 12:32:04.771 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Drugs] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(200) NOT NULL,
+    [Company] nvarchar(max) NOT NULL,
+    [PackageSize] int NULL,
+    [InsertedAt] datetime2 NOT NULL,
+    [ModifiedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_Drugs] PRIMARY KEY ([Id])
+);
+2025-02-09 12:32:04.774 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetRoleClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [RoleId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.778 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserClaims] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.782 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserLogins] (
+    [LoginProvider] nvarchar(128) NOT NULL,
+    [ProviderKey] nvarchar(128) NOT NULL,
+    [ProviderDisplayName] nvarchar(max) NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.786 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserRoles] (
+    [UserId] nvarchar(450) NOT NULL,
+    [RoleId] nvarchar(450) NOT NULL,
+    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.790 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [AspNetUserTokens] (
+    [UserId] nvarchar(450) NOT NULL,
+    [LoginProvider] nvarchar(128) NOT NULL,
+    [Name] nvarchar(128) NOT NULL,
+    [Value] nvarchar(max) NULL,
+    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.794 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Patients] (
+    [Id] nvarchar(450) NOT NULL,
+    [UserId] nvarchar(450) NOT NULL,
+    [FirstName] nvarchar(100) NOT NULL,
+    [LastName] nvarchar(100) NOT NULL,
+    [AMKA] nvarchar(15) NOT NULL,
+    [DateOfBirth] datetime2 NOT NULL,
+    [InsertedAt] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    [ModifiedAt] datetime2 NOT NULL DEFAULT (GETUTCDATE()),
+    CONSTRAINT [PK_Patients] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Patients_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.798 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [MedicationSchedules] (
+    [Id] int NOT NULL IDENTITY,
+    [PatientId] nvarchar(450) NOT NULL,
+    [DrugId] int NOT NULL,
+    [StartDate] datetime2 NOT NULL,
+    [EndDate] datetime2 NOT NULL,
+    [FrequencyPerWeek] int NOT NULL,
+    [Dosage] float NOT NULL,
+    [InsertedAt] datetime2 NOT NULL,
+    [ModifiedAt] datetime2 NOT NULL,
+    CONSTRAINT [PK_MedicationSchedules] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_MedicationSchedules_Drugs_DrugId] FOREIGN KEY ([DrugId]) REFERENCES [Drugs] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_MedicationSchedules_Patients_PatientId] FOREIGN KEY ([PatientId]) REFERENCES [Patients] ([Id]) ON DELETE CASCADE
+);
+2025-02-09 12:32:04.801 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+2025-02-09 12:32:04.804 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+2025-02-09 12:32:04.806 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+2025-02-09 12:32:04.809 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+2025-02-09 12:32:04.812 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+2025-02-09 12:32:04.815 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+2025-02-09 12:32:04.817 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+2025-02-09 12:32:04.820 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Drug_Name] ON [Drugs] ([Name]);
+2025-02-09 12:32:04.823 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_MedicationSchedules_DrugId] ON [MedicationSchedules] ([DrugId]);
+2025-02-09 12:32:04.826 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_MedicationSchedules_PatientId] ON [MedicationSchedules] ([PatientId]);
+2025-02-09 12:32:04.829 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Patient_UserId] ON [Patients] ([UserId]);
+2025-02-09 12:32:04.833 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20250209103054_InitialMigration', N'9.0.0');
+2025-02-09 12:32:04.840 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-02-09 12:32:04.993 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Drugs] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-02-09 12:32:05.118 +02:00 [INF] Executed DbCommand (13ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 200), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = DateTime2), @p8='?' (Size = 200), @p9='?' (DbType = Int32), @p10='?' (Size = 4000), @p11='?' (DbType = DateTime2), @p12='?' (DbType = DateTime2), @p13='?' (Size = 200), @p14='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+MERGE [Drugs] USING (
+VALUES (@p0, @p1, @p2, @p3, @p4, 0),
+(@p5, @p6, @p7, @p8, @p9, 1),
+(@p10, @p11, @p12, @p13, @p14, 2)) AS i ([Company], [InsertedAt], [ModifiedAt], [Name], [PackageSize], _Position) ON 1=0
+WHEN NOT MATCHED THEN
+INSERT ([Company], [InsertedAt], [ModifiedAt], [Name], [PackageSize])
+VALUES (i.[Company], i.[InsertedAt], i.[ModifiedAt], i.[Name], i.[PackageSize])
+OUTPUT INSERTED.[Id], i._Position;
+2025-02-09 12:32:05.178 +02:00 [INF] User profile is available. Using 'C:\Users\mikef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-09 12:32:05.356 +02:00 [WRN] Overriding address(es) 'http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-09 12:32:05.368 +02:00 [INF] Now listening on: http://[::]:5000
+2025-02-09 12:32:05.424 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:32:05.426 +02:00 [INF] Hosting environment: Production
+2025-02-09 12:32:05.427 +02:00 [INF] Content root path: C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar
+2025-02-09 12:32:05.714 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 12:32:05.784 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 12:32:05.806 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 12:32:05.823 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 12:32:05.918 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 12:32:05.921 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 12:32:05.995 +02:00 [INF] Executed page /Index in 167.2757ms
+2025-02-09 12:32:05.998 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 12:32:06.003 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 289.6149ms
+2025-02-09 12:32:06.030 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 12:32:06.030 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 12:32:06.030 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 12:32:06.031 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - null null
+2025-02-09 12:32:06.031 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.min.css - null null
+2025-02-09 12:32:06.033 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.bundle.min.js - null null
+2025-02-09 12:32:06.045 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 14.8867ms
+2025-02-09 12:32:06.048 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 17.8093ms
+2025-02-09 12:32:06.051 +02:00 [INF] The file /css/site.css was not modified
+2025-02-09 12:32:06.051 +02:00 [INF] The file /lib/bootstrap/dist/css/bootstrap.min.css was not modified
+2025-02-09 12:32:06.053 +02:00 [INF] The file /lib/bootstrap/dist/js/bootstrap.bundle.min.js was not modified
+2025-02-09 12:32:06.062 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 12:32:06.064 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/css/site.css?v=pAGv4ietcJNk_EwsQZ5BN9-K4MuNYS2a9wl4Jw-q9D0 - 304 null text/css 32.767ms
+2025-02-09 12:32:06.065 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/css/bootstrap.min.css - 304 null text/css 33.4897ms
+2025-02-09 12:32:06.065 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/lib/bootstrap/dist/js/bootstrap.bundle.min.js - 304 null text/javascript 32.5915ms
+2025-02-09 12:32:06.071 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 40.5211ms
+2025-02-09 12:32:06.076 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-02-09 12:32:06.089 +02:00 [INF] The file /js/site.js was not modified
+2025-02-09 12:32:06.091 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 304 null text/javascript 14.8262ms
+2025-02-09 12:32:06.102 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 12:32:06.108 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 12:32:06.110 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 8.2677ms
+2025-02-09 12:46:57.797 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 12:46:58.018 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Drugs] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-02-09 12:46:58.074 +02:00 [INF] User profile is available. Using 'C:\Users\mikef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-09 12:46:58.205 +02:00 [WRN] Overriding address(es) 'http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-09 12:46:58.215 +02:00 [INF] Now listening on: http://[::]:5000
+2025-02-09 12:46:58.272 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 12:46:58.273 +02:00 [INF] Hosting environment: Production
+2025-02-09 12:46:58.275 +02:00 [INF] Content root path: C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar
+2025-02-09 12:46:58.461 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 12:46:58.506 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 12:46:58.532 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 12:46:58.545 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 12:46:58.633 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 12:46:58.636 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 12:46:58.691 +02:00 [INF] Executed page /Index in 142.2286ms
+2025-02-09 12:46:58.694 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 12:46:58.700 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 240.1196ms
+2025-02-09 12:46:58.754 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 12:46:58.754 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 12:46:58.759 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 12:46:58.762 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 8.7126ms
+2025-02-09 12:46:58.766 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 11.7431ms
+2025-02-09 12:46:58.778 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 12:46:58.789 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 30.6379ms
+2025-02-09 12:46:58.816 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 12:46:58.824 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 12:46:58.826 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 10.0928ms
+2025-02-09 13:00:30.733 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 13:00:30.957 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Drugs] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-02-09 13:00:31.010 +02:00 [INF] User profile is available. Using 'C:\Users\mikef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-09 13:00:31.125 +02:00 [WRN] Overriding address(es) 'http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-09 13:00:31.135 +02:00 [INF] Now listening on: http://[::]:5000
+2025-02-09 13:00:31.186 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 13:00:31.188 +02:00 [INF] Hosting environment: Production
+2025-02-09 13:00:31.189 +02:00 [INF] Content root path: C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar
+2025-02-09 13:00:31.396 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:00:31.442 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 13:00:31.469 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:00:31.482 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:00:31.565 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:00:31.568 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:00:31.618 +02:00 [INF] Executed page /Index in 132.4756ms
+2025-02-09 13:00:31.621 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:00:31.626 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 231.0129ms
+2025-02-09 13:00:31.656 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:00:31.657 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:00:31.657 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-02-09 13:00:31.657 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:00:31.667 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.952ms
+2025-02-09 13:00:31.671 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 13.8003ms
+2025-02-09 13:00:31.674 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\js\site.js'
+2025-02-09 13:00:31.681 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:00:31.682 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 499 231 text/javascript 25.0615ms
+2025-02-09 13:00:31.688 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 31.0412ms
+2025-02-09 13:00:31.708 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:00:31.712 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:00:31.714 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 6.3271ms
+2025-02-09 13:28:13.510 +02:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 13:28:13.735 +02:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Drugs] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-02-09 13:28:13.789 +02:00 [INF] User profile is available. Using 'C:\Users\mikef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-09 13:28:13.906 +02:00 [WRN] Overriding address(es) 'http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-09 13:28:13.916 +02:00 [INF] Now listening on: http://[::]:5000
+2025-02-09 13:28:13.973 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 13:28:13.975 +02:00 [INF] Hosting environment: Production
+2025-02-09 13:28:13.977 +02:00 [INF] Content root path: C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar
+2025-02-09 13:28:14.125 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:28:14.172 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 13:28:14.196 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:28:14.211 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:28:14.296 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:28:14.299 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:28:14.350 +02:00 [INF] Executed page /Index in 135.1891ms
+2025-02-09 13:28:14.353 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:28:14.359 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 234.7677ms
+2025-02-09 13:28:14.382 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:28:14.382 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-02-09 13:28:14.384 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:28:14.385 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:28:14.393 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 11.0898ms
+2025-02-09 13:28:14.397 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\js\site.js'
+2025-02-09 13:28:14.398 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 13.4295ms
+2025-02-09 13:28:14.405 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:28:14.406 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 499 231 text/javascript 23.4978ms
+2025-02-09 13:28:14.414 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 29.4614ms
+2025-02-09 13:28:14.423 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:28:14.427 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:28:14.429 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 5.5096ms
+2025-02-09 13:28:17.792 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:28:17.801 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:28:17.802 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:28:17.850 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:28:17.852 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:28:17.856 +02:00 [INF] Executed page /Index in 52.8135ms
+2025-02-09 13:28:17.858 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:28:17.860 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 68.5595ms
+2025-02-09 13:28:17.885 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:28:17.885 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:28:17.886 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:28:17.894 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 8.8265ms
+2025-02-09 13:28:17.896 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.2811ms
+2025-02-09 13:28:17.900 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.9032ms
+2025-02-09 13:28:17.904 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:28:17.912 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:28:17.917 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:28:17.919 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 7.1392ms
+2025-02-09 13:28:19.026 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:28:19.031 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:28:19.033 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:28:19.049 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:28:19.051 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:28:19.054 +02:00 [INF] Executed page /Index in 18.9185ms
+2025-02-09 13:28:19.056 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:28:19.057 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 31.6026ms
+2025-02-09 13:28:19.084 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:28:19.085 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:28:19.086 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:28:19.094 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 9.1873ms
+2025-02-09 13:28:19.098 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 11.62ms
+2025-02-09 13:28:19.099 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.4456ms
+2025-02-09 13:28:19.106 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:28:19.640 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:28:19.645 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:28:19.647 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:28:19.652 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:28:19.654 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:28:19.657 +02:00 [INF] Executed page /Index in 7.5478ms
+2025-02-09 13:28:19.659 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:28:19.660 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 20.1102ms
+2025-02-09 13:28:19.694 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:28:19.694 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:28:19.695 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:28:19.703 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 9.1332ms
+2025-02-09 13:28:19.707 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 12.0871ms
+2025-02-09 13:28:19.711 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 16.4535ms
+2025-02-09 13:28:19.714 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:32:11.362 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-02-09 13:32:11.581 +02:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Drugs] AS [d]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-02-09 13:32:11.636 +02:00 [INF] User profile is available. Using 'C:\Users\mikef\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-02-09 13:32:11.751 +02:00 [WRN] Overriding address(es) 'http://localhost:5000'. Binding to endpoints defined via IConfiguration and/or UseKestrel() instead.
+2025-02-09 13:32:11.761 +02:00 [INF] Now listening on: http://[::]:5000
+2025-02-09 13:32:11.813 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-02-09 13:32:11.815 +02:00 [INF] Hosting environment: Production
+2025-02-09 13:32:11.816 +02:00 [INF] Content root path: C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar
+2025-02-09 13:32:12.267 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:32:12.311 +02:00 [WRN] Failed to determine the https port for redirect.
+2025-02-09 13:32:12.335 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:32:12.349 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:32:12.434 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:32:12.436 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:32:12.487 +02:00 [INF] Executed page /Index in 134.7875ms
+2025-02-09 13:32:12.491 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:32:12.498 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 200 null text/html; charset=utf-8 231.9773ms
+2025-02-09 13:32:12.541 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:32:12.543 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:32:12.545 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - null null
+2025-02-09 13:32:12.545 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:32:12.551 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.7926ms
+2025-02-09 13:32:12.558 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 14.973ms
+2025-02-09 13:32:12.561 +02:00 [INF] Sending file. Request path: '/js/site.js'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\js\site.js'
+2025-02-09 13:32:12.571 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:32:12.572 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/js/site.js?v=hRQyftXiu1lLX2P9Ly9xa4gHJgLeR1uGN5qegUobtGo - 499 231 text/javascript 27.7743ms
+2025-02-09 13:32:12.580 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 35.3142ms
+2025-02-09 13:32:12.600 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:32:12.604 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:32:12.606 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 6.5252ms
+2025-02-09 13:32:15.899 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/User/Login - null null
+2025-02-09 13:32:15.908 +02:00 [INF] Executing endpoint '/User/Login'
+2025-02-09 13:32:15.921 +02:00 [INF] Route matched with {page = "/User/Login", area = ""}. Executing page /User/Login
+2025-02-09 13:32:15.977 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:32:15.979 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:32:16.001 +02:00 [INF] Executed page /User/Login in 78.9671ms
+2025-02-09 13:32:16.003 +02:00 [INF] Executed endpoint '/User/Login'
+2025-02-09 13:32:16.005 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/User/Login - 200 null text/html; charset=utf-8 106.0246ms
+2025-02-09 13:32:16.048 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:32:16.048 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:32:16.049 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:32:16.056 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 8.2376ms
+2025-02-09 13:32:16.059 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.8708ms
+2025-02-09 13:32:16.066 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 17.6642ms
+2025-02-09 13:32:16.068 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:32:16.077 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:32:16.083 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:32:16.086 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 9.0727ms
+2025-02-09 13:32:21.209 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/User/Login - application/x-www-form-urlencoded 233
+2025-02-09 13:32:21.215 +02:00 [INF] Executing endpoint '/User/Login'
+2025-02-09 13:32:21.217 +02:00 [INF] Route matched with {page = "/User/Login", area = ""}. Executing page /User/Login
+2025-02-09 13:32:21.241 +02:00 [INF] Executing handler method MyMedCalendar.Pages.User.LoginModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:32:21.314 +02:00 [INF] Executed DbCommand (11ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2025-02-09 13:32:21.342 +02:00 [INF] Executed DbCommand (8ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-09 13:32:21.352 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:32:21.358 +02:00 [INF] Executed page /User/Login in 139.876ms
+2025-02-09 13:32:21.360 +02:00 [INF] Executed endpoint '/User/Login'
+2025-02-09 13:32:21.363 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/User/Login - 200 null text/html; charset=utf-8 154.0954ms
+2025-02-09 13:32:21.406 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:32:21.406 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:32:21.407 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:32:21.414 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.5555ms
+2025-02-09 13:32:21.417 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.2322ms
+2025-02-09 13:32:21.417 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.211ms
+2025-02-09 13:32:21.425 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:32:34.107 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/User/SignUp - null null
+2025-02-09 13:32:34.112 +02:00 [INF] Executing endpoint '/User/SignUp'
+2025-02-09 13:32:34.116 +02:00 [INF] Route matched with {page = "/User/SignUp", area = ""}. Executing page /User/SignUp
+2025-02-09 13:32:34.121 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:32:34.122 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:32:34.134 +02:00 [INF] Executed page /User/SignUp in 16.1589ms
+2025-02-09 13:32:34.136 +02:00 [INF] Executed endpoint '/User/SignUp'
+2025-02-09 13:32:34.137 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/User/SignUp - 200 null text/html; charset=utf-8 30.9073ms
+2025-02-09 13:32:34.171 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:32:34.171 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:32:34.172 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:32:34.178 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 6.8831ms
+2025-02-09 13:32:34.182 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.1651ms
+2025-02-09 13:32:34.182 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.92ms
+2025-02-09 13:32:34.190 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:32:45.421 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/User/SignUp - application/x-www-form-urlencoded 308
+2025-02-09 13:32:45.426 +02:00 [INF] Executing endpoint '/User/SignUp'
+2025-02-09 13:32:45.428 +02:00 [INF] Route matched with {page = "/User/SignUp", area = ""}. Executing page /User/SignUp
+2025-02-09 13:32:45.435 +02:00 [INF] Executing handler method MyMedCalendar.Pages.User.SignupModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:32:45.511 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2025-02-09 13:32:45.634 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTime2), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [InsertedAt], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+OUTPUT INSERTED.[ModifiedAt]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2025-02-09 13:32:45.684 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 15), @p2='?' (DbType = DateTime2), @p3='?' (Size = 100), @p4='?' (DbType = DateTime2), @p5='?' (Size = 100), @p6='?' (DbType = DateTime2), @p7='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Patients] ([Id], [AMKA], [DateOfBirth], [FirstName], [InsertedAt], [LastName], [ModifiedAt], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-02-09 13:32:45.719 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__user_Id_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0
+2025-02-09 13:32:45.725 +02:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2025-02-09 13:32:45.726 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:32:45.729 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/PatientInfo.
+2025-02-09 13:32:45.732 +02:00 [INF] Executed page /User/SignUp in 302.5129ms
+2025-02-09 13:32:45.734 +02:00 [INF] Executed endpoint '/User/SignUp'
+2025-02-09 13:32:45.735 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/User/SignUp - 302 0 null 313.7446ms
+2025-02-09 13:32:45.739 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient/PatientInfo - null null
+2025-02-09 13:32:45.747 +02:00 [INF] Executing endpoint '/Patient/PatientInfo'
+2025-02-09 13:32:45.752 +02:00 [INF] Route matched with {page = "/Patient/PatientInfo", area = ""}. Executing page /Patient/PatientInfo
+2025-02-09 13:32:45.755 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.PatientInfoModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:32:45.776 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:32:45.788 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+FROM [Patients] AS [p]
+WHERE [p].[UserId] = @__userId_0
+2025-02-09 13:32:45.795 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:32:45.813 +02:00 [INF] Executed page /Patient/PatientInfo in 59.3655ms
+2025-02-09 13:32:45.814 +02:00 [INF] Executed endpoint '/Patient/PatientInfo'
+2025-02-09 13:32:45.816 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient/PatientInfo - 200 null text/html; charset=utf-8 77.0726ms
+2025-02-09 13:32:45.873 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:32:45.873 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:32:45.874 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:32:45.882 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 9.1754ms
+2025-02-09 13:32:45.884 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.6516ms
+2025-02-09 13:32:45.887 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 14.2681ms
+2025-02-09 13:32:45.891 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:02.540 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Patient/PatientInfo - application/x-www-form-urlencoded 363
+2025-02-09 13:33:02.548 +02:00 [INF] Executing endpoint '/Patient/PatientInfo'
+2025-02-09 13:33:02.549 +02:00 [INF] Route matched with {page = "/Patient/PatientInfo", area = ""}. Executing page /Patient/PatientInfo
+2025-02-09 13:33:02.555 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.PatientInfoModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:33:02.604 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:02.618 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p7='?' (Size = 450), @p0='?' (Size = 15), @p1='?' (DbType = DateTime2), @p2='?' (Size = 100), @p3='?' (DbType = DateTime2), @p4='?' (Size = 100), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [Patients] SET [AMKA] = @p0, [DateOfBirth] = @p1, [FirstName] = @p2, [InsertedAt] = @p3, [LastName] = @p4, [ModifiedAt] = @p5, [UserId] = @p6
+OUTPUT 1
+WHERE [Id] = @p7;
+2025-02-09 13:33:02.622 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:33:02.623 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:33:02.625 +02:00 [INF] Executed page /Patient/PatientInfo in 74.2567ms
+2025-02-09 13:33:02.626 +02:00 [INF] Executed endpoint '/Patient/PatientInfo'
+2025-02-09 13:33:02.628 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Patient/PatientInfo - 302 0 null 87.7345ms
+2025-02-09 13:33:02.631 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:33:02.637 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:33:02.639 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:33:02.643 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:02.647 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:33:02.651 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:02.662 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:33:02.670 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:02.672 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:02.673 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:02.679 +02:00 [INF] Executed page /Patient/Main in 38.1087ms
+2025-02-09 13:33:02.681 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:33:02.682 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 51.0193ms
+2025-02-09 13:33:02.709 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:02.709 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:02.709 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:02.716 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.511ms
+2025-02-09 13:33:02.719 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.2016ms
+2025-02-09 13:33:02.719 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.1883ms
+2025-02-09 13:33:02.727 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:05.585 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Drug/CreateDrug - null null
+2025-02-09 13:33:05.590 +02:00 [INF] Executing endpoint '/Drug/CreateDrug'
+2025-02-09 13:33:05.593 +02:00 [INF] Route matched with {page = "/Drug/CreateDrug", area = ""}. Executing page /Drug/CreateDrug
+2025-02-09 13:33:05.597 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Drug.CreateDrugModel.OnGet - ModelState is "Valid"
+2025-02-09 13:33:05.598 +02:00 [INF] Executed handler method OnGet, returned result .
+2025-02-09 13:33:05.599 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:05.601 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:05.616 +02:00 [INF] Executed page /Drug/CreateDrug in 20.5655ms
+2025-02-09 13:33:05.617 +02:00 [INF] Executed endpoint '/Drug/CreateDrug'
+2025-02-09 13:33:05.619 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Drug/CreateDrug - 200 null text/html; charset=utf-8 34.1222ms
+2025-02-09 13:33:05.653 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:05.654 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:05.654 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:05.659 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation/dist/jquery.validate.min.js - null null
+2025-02-09 13:33:05.659 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - null null
+2025-02-09 13:33:05.662 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 9.1291ms
+2025-02-09 13:33:05.665 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.8674ms
+2025-02-09 13:33:05.669 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 15.516ms
+2025-02-09 13:33:05.673 +02:00 [INF] The file /lib/jquery-validation/dist/jquery.validate.min.js was not modified
+2025-02-09 13:33:05.676 +02:00 [INF] The file /lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js was not modified
+2025-02-09 13:33:05.680 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:05.687 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/lib/jquery-validation/dist/jquery.validate.min.js - 304 null text/javascript 28.0134ms
+2025-02-09 13:33:05.687 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js - 304 null text/javascript 28.5158ms
+2025-02-09 13:33:15.617 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/Drug/CreateDrug - application/x-www-form-urlencoded 322
+2025-02-09 13:33:15.622 +02:00 [INF] Executing endpoint '/Drug/CreateDrug'
+2025-02-09 13:33:15.623 +02:00 [INF] Route matched with {page = "/Drug/CreateDrug", area = ""}. Executing page /Drug/CreateDrug
+2025-02-09 13:33:15.628 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Drug.CreateDrugModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:33:15.658 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (DbType = DateTime2), @p2='?' (DbType = DateTime2), @p3='?' (Size = 200), @p4='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Drugs] ([Company], [InsertedAt], [ModifiedAt], [Name], [PackageSize])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4);
+2025-02-09 13:33:15.666 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:33:15.667 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:33:15.668 +02:00 [INF] Executed page /Drug/CreateDrug in 43.9086ms
+2025-02-09 13:33:15.670 +02:00 [INF] Executed endpoint '/Drug/CreateDrug'
+2025-02-09 13:33:15.671 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/Drug/CreateDrug - 302 0 null 54.048ms
+2025-02-09 13:33:15.675 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:33:15.679 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:33:15.681 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:33:15.684 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:15.686 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:33:15.690 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:15.693 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:33:15.698 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:15.700 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:15.701 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:15.703 +02:00 [INF] Executed page /Patient/Main in 21.1471ms
+2025-02-09 13:33:15.705 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:33:15.706 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 31.5726ms
+2025-02-09 13:33:15.736 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:15.736 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:15.736 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:15.743 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.3191ms
+2025-02-09 13:33:15.746 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0407ms
+2025-02-09 13:33:15.746 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.096ms
+2025-02-09 13:33:15.755 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:17.874 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Create - null null
+2025-02-09 13:33:17.879 +02:00 [INF] Executing endpoint '/MedicationSchedule/Create'
+2025-02-09 13:33:17.883 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Create", area = ""}. Executing page /MedicationSchedule/Create
+2025-02-09 13:33:17.886 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.CreateModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:17.894 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [Drugs] AS [d]
+2025-02-09 13:33:17.900 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:17.901 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:17.902 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:17.925 +02:00 [INF] Executed page /MedicationSchedule/Create in 40.2329ms
+2025-02-09 13:33:17.926 +02:00 [INF] Executed endpoint '/MedicationSchedule/Create'
+2025-02-09 13:33:17.928 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Create - 200 null text/html; charset=utf-8 54.2401ms
+2025-02-09 13:33:17.956 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:17.956 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:17.956 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:17.964 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.732ms
+2025-02-09 13:33:17.966 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.1507ms
+2025-02-09 13:33:17.967 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.233ms
+2025-02-09 13:33:17.975 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:28.165 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Create - application/x-www-form-urlencoded 563
+2025-02-09 13:33:28.170 +02:00 [INF] Executing endpoint '/MedicationSchedule/Create'
+2025-02-09 13:33:28.171 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Create", area = ""}. Executing page /MedicationSchedule/Create
+2025-02-09 13:33:28.177 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.CreateModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:33:28.188 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [Drugs] AS [d]
+WHERE [d].[Id] = @__p_0
+2025-02-09 13:33:28.213 +02:00 [INF] Executed DbCommand (3ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [MedicationSchedules] ([Dosage], [DrugId], [EndDate], [FrequencyPerWeek], [InsertedAt], [ModifiedAt], [PatientId], [StartDate])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-02-09 13:33:28.217 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:33:28.219 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:33:28.220 +02:00 [INF] Executed page /MedicationSchedule/Create in 47.9552ms
+2025-02-09 13:33:28.222 +02:00 [INF] Executed endpoint '/MedicationSchedule/Create'
+2025-02-09 13:33:28.223 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Create - 302 0 null 58.6442ms
+2025-02-09 13:33:28.226 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:33:28.231 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:33:28.232 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:33:28.236 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:28.238 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:33:28.247 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:28.256 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:33:28.261 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:28.262 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:28.263 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:28.267 +02:00 [INF] Executed page /Patient/Main in 32.8602ms
+2025-02-09 13:33:28.268 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:33:28.270 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 43.5394ms
+2025-02-09 13:33:28.309 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:28.310 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:28.311 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:28.317 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.3825ms
+2025-02-09 13:33:28.317 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 7.789ms
+2025-02-09 13:33:28.321 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.6938ms
+2025-02-09 13:33:28.327 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:28.334 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:33:28.337 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:33:28.338 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 4.5444ms
+2025-02-09 13:33:34.516 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Edit/1 - null null
+2025-02-09 13:33:34.521 +02:00 [INF] Executing endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:33:34.524 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Edit", area = ""}. Executing page /MedicationSchedule/Edit
+2025-02-09 13:33:34.527 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.EditModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:34.536 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate]
+FROM [MedicationSchedules] AS [m]
+WHERE [m].[Id] = @__p_0
+2025-02-09 13:33:34.540 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:34.552 +02:00 [INF] Executed page /MedicationSchedule/Edit in 27.293ms
+2025-02-09 13:33:34.554 +02:00 [INF] Executed endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:33:34.556 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Edit/1 - 200 null text/html; charset=utf-8 40.1759ms
+2025-02-09 13:33:34.586 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:34.587 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:34.588 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:34.594 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.2825ms
+2025-02-09 13:33:34.596 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.0648ms
+2025-02-09 13:33:34.597 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.0716ms
+2025-02-09 13:33:34.605 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:34.612 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:33:34.615 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:33:34.616 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 4.6295ms
+2025-02-09 13:33:39.035 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Edit/1 - application/x-www-form-urlencoded 625
+2025-02-09 13:33:39.039 +02:00 [INF] Executing endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:33:39.040 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Edit", area = ""}. Executing page /MedicationSchedule/Edit
+2025-02-09 13:33:39.045 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.EditModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:33:39.048 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate]
+FROM [MedicationSchedules] AS [m]
+WHERE [m].[Id] = @__p_0
+2025-02-09 13:33:39.055 +02:00 [INF] Executed DbCommand (2ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (DbType = Double), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [MedicationSchedules] SET [Dosage] = @p0, [DrugId] = @p1, [EndDate] = @p2, [FrequencyPerWeek] = @p3, [InsertedAt] = @p4, [ModifiedAt] = @p5, [PatientId] = @p6, [StartDate] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2025-02-09 13:33:39.058 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:33:39.059 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:33:39.061 +02:00 [INF] Executed page /MedicationSchedule/Edit in 18.7585ms
+2025-02-09 13:33:39.062 +02:00 [INF] Executed endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:33:39.063 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Edit/1 - 302 0 null 28.685ms
+2025-02-09 13:33:39.067 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:33:39.071 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:33:39.072 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:33:39.075 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:39.077 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:33:39.081 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:39.085 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:33:39.089 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:39.090 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:39.092 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:39.094 +02:00 [INF] Executed page /Patient/Main in 20.3933ms
+2025-02-09 13:33:39.096 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:33:39.097 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 30.1029ms
+2025-02-09 13:33:39.124 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:39.125 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:39.125 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:39.133 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 8.3131ms
+2025-02-09 13:33:39.135 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0751ms
+2025-02-09 13:33:39.135 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.1101ms
+2025-02-09 13:33:39.142 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:43.153 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 245
+2025-02-09 13:33:43.158 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:33:43.162 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:33:43.170 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:33:43.208 +02:00 [INF] Executed DbCommand (6ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:33:43.221 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:43.224 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 60.1992ms
+2025-02-09 13:33:43.226 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:33:43.228 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 74.682ms
+2025-02-09 13:33:43.256 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:43.256 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:43.257 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:43.263 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 7.3518ms
+2025-02-09 13:33:43.265 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 9.5457ms
+2025-02-09 13:33:43.268 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.7428ms
+2025-02-09 13:33:43.278 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:33:43.277 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:43.283 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:33:43.286 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 7.7269ms
+2025-02-09 13:33:52.142 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/ - null null
+2025-02-09 13:33:52.147 +02:00 [INF] Executing endpoint '/Index'
+2025-02-09 13:33:52.149 +02:00 [INF] Route matched with {page = "/Index", area = ""}. Executing page /Index
+2025-02-09 13:33:52.152 +02:00 [INF] Executing handler method MyMedCalendar.Pages.IndexModel.OnGet - ModelState is "Valid"
+2025-02-09 13:33:52.153 +02:00 [INF] Executed handler method OnGet, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:33:52.154 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:33:52.156 +02:00 [INF] Executed page /Index in 5.6376ms
+2025-02-09 13:33:52.157 +02:00 [INF] Executed endpoint '/Index'
+2025-02-09 13:33:52.158 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/ - 302 0 null 15.9126ms
+2025-02-09 13:33:52.164 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:33:52.168 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:33:52.170 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:33:52.172 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:52.175 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:33:52.179 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:52.182 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:33:52.186 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:52.188 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:52.189 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:52.191 +02:00 [INF] Executed page /Patient/Main in 19.6768ms
+2025-02-09 13:33:52.192 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:33:52.194 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 29.9257ms
+2025-02-09 13:33:52.220 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:33:52.221 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:33:52.221 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:52.228 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.6557ms
+2025-02-09 13:33:52.231 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0984ms
+2025-02-09 13:33:52.231 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.472ms
+2025-02-09 13:33:52.239 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:33:52.246 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:33:52.249 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:33:52.251 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 4.8915ms
+2025-02-09 13:33:57.454 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:33:57.459 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:33:57.461 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:33:57.464 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:33:57.466 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:33:57.470 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:33:57.474 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:33:57.479 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:33:57.480 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:33:57.482 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:33:57.483 +02:00 [INF] Executed page /Patient/Main in 21.1824ms
+2025-02-09 13:33:57.485 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:33:57.487 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 32.3981ms
+2025-02-09 13:33:57.514 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:33:57.518 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.6486ms
+2025-02-09 13:33:57.527 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:33:57.531 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:33:57.533 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 5.5801ms
+2025-02-09 13:34:01.062 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 245
+2025-02-09 13:34:01.068 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:01.069 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:34:01.072 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:34:01.075 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:34:01.079 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:01.081 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 10.8515ms
+2025-02-09 13:34:01.083 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:01.085 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 22.505ms
+2025-02-09 13:34:01.117 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:01.118 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:01.118 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:01.126 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 9.3158ms
+2025-02-09 13:34:01.129 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 11.125ms
+2025-02-09 13:34:01.129 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.7589ms
+2025-02-09 13:34:01.137 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:01.139 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:34:01.147 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:34:01.148 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 9.4409ms
+2025-02-09 13:34:06.202 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:34:06.206 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:34:06.207 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:34:06.210 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:06.213 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:34:06.216 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:34:06.220 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:34:06.224 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:06.226 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:06.227 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:06.230 +02:00 [INF] Executed page /Patient/Main in 21.781ms
+2025-02-09 13:34:06.232 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:34:06.233 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 31.3646ms
+2025-02-09 13:34:06.269 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:06.274 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 4.8884ms
+2025-02-09 13:34:06.284 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:34:06.288 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:34:06.290 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 5.6982ms
+2025-02-09 13:34:10.048 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Edit/1 - null null
+2025-02-09 13:34:10.053 +02:00 [INF] Executing endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:34:10.054 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Edit", area = ""}. Executing page /MedicationSchedule/Edit
+2025-02-09 13:34:10.057 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.EditModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:10.060 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate]
+FROM [MedicationSchedules] AS [m]
+WHERE [m].[Id] = @__p_0
+2025-02-09 13:34:10.064 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:10.067 +02:00 [INF] Executed page /MedicationSchedule/Edit in 11.3667ms
+2025-02-09 13:34:10.068 +02:00 [INF] Executed endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:34:10.070 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Edit/1 - 200 null text/html; charset=utf-8 21.8189ms
+2025-02-09 13:34:10.099 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:10.101 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:10.101 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:10.107 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.9497ms
+2025-02-09 13:34:10.110 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.0747ms
+2025-02-09 13:34:10.110 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.6399ms
+2025-02-09 13:34:10.120 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:11.851 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Edit/1 - application/x-www-form-urlencoded 625
+2025-02-09 13:34:11.856 +02:00 [INF] Executing endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:34:11.857 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Edit", area = ""}. Executing page /MedicationSchedule/Edit
+2025-02-09 13:34:11.861 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.EditModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:34:11.864 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate]
+FROM [MedicationSchedules] AS [m]
+WHERE [m].[Id] = @__p_0
+2025-02-09 13:34:11.869 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (DbType = Double), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [MedicationSchedules] SET [Dosage] = @p0, [DrugId] = @p1, [EndDate] = @p2, [FrequencyPerWeek] = @p3, [InsertedAt] = @p4, [ModifiedAt] = @p5, [PatientId] = @p6, [StartDate] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2025-02-09 13:34:11.871 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:34:11.873 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:34:11.874 +02:00 [INF] Executed page /MedicationSchedule/Edit in 15.7385ms
+2025-02-09 13:34:11.876 +02:00 [INF] Executed endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:34:11.878 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Edit/1 - 302 0 null 26.2004ms
+2025-02-09 13:34:11.881 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:34:11.886 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:34:11.887 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:34:11.891 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:11.894 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:34:11.897 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:34:11.901 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:34:11.905 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:11.907 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:11.908 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:11.910 +02:00 [INF] Executed page /Patient/Main in 21.4165ms
+2025-02-09 13:34:11.912 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:34:11.914 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 32.179ms
+2025-02-09 13:34:11.942 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:11.942 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:11.945 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:11.948 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 6.1262ms
+2025-02-09 13:34:11.952 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.2378ms
+2025-02-09 13:34:11.955 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.9888ms
+2025-02-09 13:34:11.959 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:16.093 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 245
+2025-02-09 13:34:16.100 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:16.101 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:34:16.104 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:34:16.107 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:34:16.110 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:16.113 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 10.2633ms
+2025-02-09 13:34:16.114 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:16.116 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 23.4909ms
+2025-02-09 13:34:16.147 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:16.148 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:16.148 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:16.154 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.4634ms
+2025-02-09 13:34:16.157 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.5156ms
+2025-02-09 13:34:16.157 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.3842ms
+2025-02-09 13:34:16.166 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:28.404 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:34:28.408 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:34:28.410 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:34:28.413 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:28.415 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:34:28.418 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:34:28.422 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:34:28.426 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:28.428 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:28.429 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:28.431 +02:00 [INF] Executed page /Patient/Main in 19.8992ms
+2025-02-09 13:34:28.433 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:34:28.434 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 30.4488ms
+2025-02-09 13:34:28.466 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:28.469 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.1959ms
+2025-02-09 13:34:29.999 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Create - null null
+2025-02-09 13:34:30.004 +02:00 [INF] Executing endpoint '/MedicationSchedule/Create'
+2025-02-09 13:34:30.005 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Create", area = ""}. Executing page /MedicationSchedule/Create
+2025-02-09 13:34:30.008 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.CreateModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:30.011 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [Drugs] AS [d]
+2025-02-09 13:34:30.015 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:30.017 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:30.018 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:30.021 +02:00 [INF] Executed page /MedicationSchedule/Create in 14.7871ms
+2025-02-09 13:34:30.023 +02:00 [INF] Executed endpoint '/MedicationSchedule/Create'
+2025-02-09 13:34:30.025 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Create - 200 null text/html; charset=utf-8 25.3434ms
+2025-02-09 13:34:30.056 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:30.056 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:30.056 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:30.063 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.4258ms
+2025-02-09 13:34:30.066 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0732ms
+2025-02-09 13:34:30.066 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.0411ms
+2025-02-09 13:34:30.074 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:43.708 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Create - application/x-www-form-urlencoded 563
+2025-02-09 13:34:43.713 +02:00 [INF] Executing endpoint '/MedicationSchedule/Create'
+2025-02-09 13:34:43.714 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Create", area = ""}. Executing page /MedicationSchedule/Create
+2025-02-09 13:34:43.717 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.CreateModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:34:43.720 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [Drugs] AS [d]
+WHERE [d].[Id] = @__p_0
+2025-02-09 13:34:43.725 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = Double), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [MedicationSchedules] ([Dosage], [DrugId], [EndDate], [FrequencyPerWeek], [InsertedAt], [ModifiedAt], [PatientId], [StartDate])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2025-02-09 13:34:43.728 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:34:43.730 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:34:43.731 +02:00 [INF] Executed page /MedicationSchedule/Create in 15.2012ms
+2025-02-09 13:34:43.732 +02:00 [INF] Executed endpoint '/MedicationSchedule/Create'
+2025-02-09 13:34:43.734 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Create - 302 0 null 25.5842ms
+2025-02-09 13:34:43.737 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:34:43.741 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:34:43.743 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:34:43.746 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:43.748 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:34:43.751 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:34:43.755 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:34:43.760 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:43.761 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:43.762 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:43.764 +02:00 [INF] Executed page /Patient/Main in 19.8355ms
+2025-02-09 13:34:43.766 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:34:43.767 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 30.566ms
+2025-02-09 13:34:43.800 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:43.801 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:43.801 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:43.808 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.0149ms
+2025-02-09 13:34:43.809 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 8.0504ms
+2025-02-09 13:34:43.812 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.8922ms
+2025-02-09 13:34:43.819 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:43.825 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:34:43.829 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:34:43.831 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 5.3766ms
+2025-02-09 13:34:48.274 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 245
+2025-02-09 13:34:48.279 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:48.280 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:34:48.283 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:34:48.286 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:34:48.289 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:48.291 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 9.65ms
+2025-02-09 13:34:48.293 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:48.295 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 20.4494ms
+2025-02-09 13:34:48.330 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:48.330 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:48.331 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:48.337 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.3764ms
+2025-02-09 13:34:48.340 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0127ms
+2025-02-09 13:34:48.340 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.4997ms
+2025-02-09 13:34:48.349 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:48.355 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/favicon.ico - null null
+2025-02-09 13:34:48.358 +02:00 [INF] Sending file. Request path: '/favicon.ico'. Physical path: 'C:\Users\mikef\source\repos\MyMedCalendarFinal\MyMedCalendar\wwwroot\favicon.ico'
+2025-02-09 13:34:48.360 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/favicon.ico - 499 5430 image/x-icon 4.9114ms
+2025-02-09 13:34:52.305 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:34:52.309 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:34:52.311 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:34:52.314 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:52.316 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:34:52.320 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:34:52.323 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:34:52.328 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:52.329 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:52.330 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:52.332 +02:00 [INF] Executed page /Patient/Main in 19.9006ms
+2025-02-09 13:34:52.334 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:34:52.335 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 30.4668ms
+2025-02-09 13:34:52.369 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:52.373 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.8432ms
+2025-02-09 13:34:54.330 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 265
+2025-02-09 13:34:54.335 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:54.336 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:34:54.339 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:34:54.342 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:34:54.345 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:54.347 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 9.9183ms
+2025-02-09 13:34:54.349 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:34:54.350 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 19.9578ms
+2025-02-09 13:34:54.382 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:34:54.382 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:34:54.383 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:54.389 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.1587ms
+2025-02-09 13:34:54.392 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.007ms
+2025-02-09 13:34:54.392 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.4398ms
+2025-02-09 13:34:54.401 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:34:56.447 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:34:56.451 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:34:56.452 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:34:56.455 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:34:56.457 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:34:56.461 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:34:56.465 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:34:56.469 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:34:56.471 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:34:56.472 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:34:56.474 +02:00 [INF] Executed page /Patient/Main in 20.0328ms
+2025-02-09 13:34:56.476 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:34:56.477 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 30.43ms
+2025-02-09 13:34:56.503 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:34:56.506 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.4502ms
+2025-02-09 13:35:01.952 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Edit/1 - null null
+2025-02-09 13:35:01.957 +02:00 [INF] Executing endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:35:01.958 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Edit", area = ""}. Executing page /MedicationSchedule/Edit
+2025-02-09 13:35:01.961 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.EditModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:35:01.964 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate]
+FROM [MedicationSchedules] AS [m]
+WHERE [m].[Id] = @__p_0
+2025-02-09 13:35:01.967 +02:00 [INF] Executed handler method OnGetAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:35:01.970 +02:00 [INF] Executed page /MedicationSchedule/Edit in 10.3846ms
+2025-02-09 13:35:01.972 +02:00 [INF] Executed endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:35:01.974 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MedicationSchedule/Edit/1 - 200 null text/html; charset=utf-8 21.4258ms
+2025-02-09 13:35:02.006 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:35:02.006 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:35:02.007 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:35:02.014 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.9757ms
+2025-02-09 13:35:02.017 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.3033ms
+2025-02-09 13:35:02.017 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.1826ms
+2025-02-09 13:35:02.026 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:35:08.633 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Edit/1 - application/x-www-form-urlencoded 625
+2025-02-09 13:35:08.637 +02:00 [INF] Executing endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:35:08.639 +02:00 [INF] Route matched with {page = "/MedicationSchedule/Edit", area = ""}. Executing page /MedicationSchedule/Edit
+2025-02-09 13:35:08.641 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.EditModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:35:08.645 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate]
+FROM [MedicationSchedules] AS [m]
+WHERE [m].[Id] = @__p_0
+2025-02-09 13:35:08.650 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@p8='?' (DbType = Int32), @p0='?' (DbType = Double), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (DbType = Int32), @p4='?' (DbType = DateTime2), @p5='?' (DbType = DateTime2), @p6='?' (Size = 450), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [MedicationSchedules] SET [Dosage] = @p0, [DrugId] = @p1, [EndDate] = @p2, [FrequencyPerWeek] = @p3, [InsertedAt] = @p4, [ModifiedAt] = @p5, [PatientId] = @p6, [StartDate] = @p7
+OUTPUT 1
+WHERE [Id] = @p8;
+2025-02-09 13:35:08.653 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RedirectToPageResult.
+2025-02-09 13:35:08.654 +02:00 [INF] Executing RedirectToPageResult, redirecting to /Patient/Main.
+2025-02-09 13:35:08.655 +02:00 [INF] Executed page /MedicationSchedule/Edit in 15.409ms
+2025-02-09 13:35:08.657 +02:00 [INF] Executed endpoint '/MedicationSchedule/Edit'
+2025-02-09 13:35:08.658 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/Edit/1 - 302 0 null 24.9977ms
+2025-02-09 13:35:08.662 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:35:08.666 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:35:08.668 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:35:08.670 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:35:08.672 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:35:08.676 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:35:08.680 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:35:08.684 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:35:08.685 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:35:08.686 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:35:08.688 +02:00 [INF] Executed page /Patient/Main in 19.1248ms
+2025-02-09 13:35:08.690 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:35:08.691 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 29.324ms
+2025-02-09 13:35:08.718 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:35:08.718 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:35:08.719 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:35:08.725 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.0843ms
+2025-02-09 13:35:08.728 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 9.5021ms
+2025-02-09 13:35:08.728 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.5257ms
+2025-02-09 13:35:08.737 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:35:10.421 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 245
+2025-02-09 13:35:10.426 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:35:10.428 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:35:10.431 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:35:10.433 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:35:10.436 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:35:10.438 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 8.6551ms
+2025-02-09 13:35:10.440 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:35:10.441 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 19.9281ms
+2025-02-09 13:35:10.468 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:35:10.468 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:35:10.468 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:35:10.476 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 8.0775ms
+2025-02-09 13:35:10.479 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.3989ms
+2025-02-09 13:35:10.479 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 10.4149ms
+2025-02-09 13:35:10.487 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:35:19.951 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:35:19.955 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:35:19.956 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:35:19.960 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:35:19.962 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:35:19.965 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:35:19.969 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:35:19.973 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:35:19.975 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:35:19.976 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:35:19.978 +02:00 [INF] Executed page /Patient/Main in 20.4622ms
+2025-02-09 13:35:19.980 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:35:19.982 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 31.0732ms
+2025-02-09 13:35:20.006 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:35:20.009 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.3922ms
+2025-02-09 13:35:26.131 +02:00 [INF] Request starting HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - application/x-www-form-urlencoded 245
+2025-02-09 13:35:26.136 +02:00 [INF] Executing endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:35:26.137 +02:00 [INF] Route matched with {page = "/MedicationSchedule/GenerateCalendar", area = ""}. Executing page /MedicationSchedule/GenerateCalendar
+2025-02-09 13:35:26.140 +02:00 [INF] Executing handler method MyMedCalendar.Pages.MedicationSchedule.GenerateCalendarModel.OnPostAsync - ModelState is "Valid"
+2025-02-09 13:35:26.143 +02:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ids_0='?' (Size = 4000)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[Id] IN (
+    SELECT [i].[value]
+    FROM OPENJSON(@__ids_0) WITH ([value] int '$') AS [i]
+)
+2025-02-09 13:35:26.146 +02:00 [INF] Executed handler method OnPostAsync, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:35:26.148 +02:00 [INF] Executed page /MedicationSchedule/GenerateCalendar in 9.6807ms
+2025-02-09 13:35:26.150 +02:00 [INF] Executed endpoint '/MedicationSchedule/GenerateCalendar'
+2025-02-09 13:35:26.152 +02:00 [INF] Request finished HTTP/1.1 POST http://localhost:5000/MedicationSchedule/GenerateCalendar - 200 null text/html; charset=utf-8 20.2587ms
+2025-02-09 13:35:26.177 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - null null
+2025-02-09 13:35:26.177 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_vs/browserLink - null null
+2025-02-09 13:35:26.177 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:35:26.184 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/MyMedCalendar.styles.css - 404 0 null 7.3122ms
+2025-02-09 13:35:26.187 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 9.8872ms
+2025-02-09 13:35:26.187 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_vs/browserLink - 200 null text/javascript; charset=UTF-8 10.0667ms
+2025-02-09 13:35:26.196 +02:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5000/MyMedCalendar.styles.css, Response status code: 404
+2025-02-09 13:35:34.188 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/Patient - null null
+2025-02-09 13:35:34.192 +02:00 [INF] Executing endpoint '/Patient/Main'
+2025-02-09 13:35:34.194 +02:00 [INF] Route matched with {page = "/Patient/Main", area = ""}. Executing page /Patient/Main
+2025-02-09 13:35:34.197 +02:00 [INF] Executing handler method MyMedCalendar.Pages.Patient.MainModel.OnGetAsync - ModelState is "Valid"
+2025-02-09 13:35:34.199 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[InsertedAt], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[ModifiedAt], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0
+2025-02-09 13:35:34.202 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [p0].[Id], [p0].[AMKA], [p0].[DateOfBirth], [p0].[FirstName], [p0].[InsertedAt], [p0].[LastName], [p0].[ModifiedAt], [p0].[UserId], [s].[Id], [s].[Dosage], [s].[DrugId], [s].[EndDate], [s].[FrequencyPerWeek], [s].[InsertedAt], [s].[ModifiedAt], [s].[PatientId], [s].[StartDate], [s].[Id0], [s].[Company], [s].[InsertedAt0], [s].[ModifiedAt0], [s].[Name], [s].[PackageSize]
+FROM (
+    SELECT TOP(1) [p].[Id], [p].[AMKA], [p].[DateOfBirth], [p].[FirstName], [p].[InsertedAt], [p].[LastName], [p].[ModifiedAt], [p].[UserId]
+    FROM [Patients] AS [p]
+    WHERE [p].[UserId] = @__userId_0
+) AS [p0]
+LEFT JOIN (
+    SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id] AS [Id0], [d].[Company], [d].[InsertedAt] AS [InsertedAt0], [d].[ModifiedAt] AS [ModifiedAt0], [d].[Name], [d].[PackageSize]
+    FROM [MedicationSchedules] AS [m]
+    INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+) AS [s] ON [p0].[Id] = [s].[PatientId]
+ORDER BY [p0].[Id], [s].[Id]
+2025-02-09 13:35:34.205 +02:00 [INF] Executed DbCommand (0ms) [Parameters=[@__patientId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Dosage], [m].[DrugId], [m].[EndDate], [m].[FrequencyPerWeek], [m].[InsertedAt], [m].[ModifiedAt], [m].[PatientId], [m].[StartDate], [d].[Id], [d].[Company], [d].[InsertedAt], [d].[ModifiedAt], [d].[Name], [d].[PackageSize]
+FROM [MedicationSchedules] AS [m]
+INNER JOIN [Drugs] AS [d] ON [m].[DrugId] = [d].[Id]
+WHERE [m].[PatientId] = @__patientId_0
+2025-02-09 13:35:34.211 +02:00 [INF] Executed handler method OnGetAsync, returned result .
+2025-02-09 13:35:34.212 +02:00 [INF] Executing an implicit handler method - ModelState is "Valid"
+2025-02-09 13:35:34.213 +02:00 [INF] Executed an implicit handler method, returned result Microsoft.AspNetCore.Mvc.RazorPages.PageResult.
+2025-02-09 13:35:34.215 +02:00 [INF] Executed page /Patient/Main in 20.188ms
+2025-02-09 13:35:34.217 +02:00 [INF] Executed endpoint '/Patient/Main'
+2025-02-09 13:35:34.218 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/Patient - 200 null text/html; charset=utf-8 30.5763ms
+2025-02-09 13:35:34.250 +02:00 [INF] Request starting HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - null null
+2025-02-09 13:35:34.253 +02:00 [INF] Request finished HTTP/1.1 GET http://localhost:5000/_framework/aspnetcore-browser-refresh.js - 200 13762 application/javascript; charset=utf-8 3.2498ms

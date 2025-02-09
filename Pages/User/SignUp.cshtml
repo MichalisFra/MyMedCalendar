@@ -1,0 +1,33 @@
+﻿@page
+@model MyMedCalendar.Pages.User.SignupModel
+@{
+    ViewData["Title"] = "Sign Up";
+}
+
+<h1>Sign Up</h1>
+
+<form method="post" class="mt-4">
+    <div class="mb-3">
+        <label asp-for="Signup.Username" class="form-label"></label>
+        <input asp-for="Signup.Username" class="form-control" />
+        <span asp-validation-for="Signup.Username" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Signup.Email" class="form-label"></label>
+        <input asp-for="Signup.Email" type="email" class="form-control" />
+        <span asp-validation-for="Signup.Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Signup.Password" class="form-label"></label>
+        <input asp-for="Signup.Password" type="password" class="form-control"
+               placeholder="Password must contain at least one uppercase, one lowercase, one digit, and one special character and be at least 8 characters long" />
+        <span asp-validation-for="Signup.Password" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Signup.ConfirmPassword" class="form-label">Confirm Password</label>
+        <input asp-for="Signup.ConfirmPassword" type="password" class="form-control"
+               placeholder="Password must contain at least one uppercase, one lowercase, one digit, and one special character and be at least 8 characters long" />
+        <span asp-validation-for="Signup.ConfirmPassword" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>

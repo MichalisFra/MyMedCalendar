@@ -1,0 +1,6 @@
+﻿@page
+@model TestPageModel
+<form method="post" asp-page="/TestPage">
+    @Html.AntiForgeryToken()
+    <button type="submit">Test Antiforgery</button>
+</form>

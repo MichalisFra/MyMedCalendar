@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model MyMedCalendar.Pages.MedicationSchedule.EditModel
+@{
+    ViewData["Title"] = "Edit Medication Schedule";
+}
+
+<h2>Edit Medication Schedule</h2>
+
+<form method="post">
+    <input asp-for="MedicationSchedule.Id" type="hidden" />
+
+    <div class="form-group">
+        <label asp-for="MedicationSchedule.DrugId"></label>
+        <input asp-for="MedicationSchedule.DrugId" class="form-control" readonly />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicationSchedule.Dosage"></label>
+        <input asp-for="MedicationSchedule.Dosage" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicationSchedule.FrequencyPerWeek"></label>
+        <input asp-for="MedicationSchedule.FrequencyPerWeek" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicationSchedule.StartDate"></label>
+        <input asp-for="MedicationSchedule.StartDate" class="form-control" type="date" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="MedicationSchedule.EndDate"></label>
+        <input asp-for="MedicationSchedule.EndDate" class="form-control" type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-page="/Patient/Main" class="btn btn-secondary">Cancel</a>
+</form>
