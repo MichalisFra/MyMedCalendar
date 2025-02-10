@@ -12,7 +12,7 @@ Before you begin deployment, ensure you have:
 ### Step 1: Clone the Repository
 Clone the source code from its repository:
 ```bash
-git clone https://github.com/yourrepository/MyMedCalendar.git
+git clone https://github.com/MichalisFra/MyMedCalendar.git
 ```
 
 ### Step 2: Navigate to the Project Directory
